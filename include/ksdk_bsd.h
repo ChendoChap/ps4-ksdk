@@ -218,14 +218,14 @@ struct ucred {
 	uint32_t cr_uid;					// effective user id	0x0004
 	uint32_t cr_ruid;					// real user id			0x0008
 	uint32_t useless2;					// 						0x000C
-	uint32_t useless3;					//
-	uint32_t cr_rgid;					// real group id
-	uint32_t useless4;					//
-	void *useless5;						//
-	void *useless6;						//
+	uint32_t useless3;					//						0x0010
+	uint32_t cr_rgid;					// real group id		0x0014
+	uint32_t useless4;					//						0x0018
+	void *useless5;						//						0x0020
+	void *useless6;						//						0x0028
 	void *cr_prison;					// jail(2)				0x0030
-	void *useless7;						//
-	uint32_t useless8;					//
+	void *useless7;						//						0x0038
+	uint32_t useless8;					//						0x0040
 	void *useless9[2];					//
 	void *useless10;					//
 	struct auditinfo_addr cr_audit;		//
@@ -239,20 +239,20 @@ struct filedesc {
 	void *fd_jdir;
 };
 
-TYPE_BEGIN(struct proc, 0x800); // XXX: random, don't use directly without fixing it
+TYPE_BEGIN(struct proc, 0xB50); // XXX: random, don't use directly without fixing it
 TYPE_FIELD(struct proc *p_forw, 0);
 TYPE_FIELD(TAILQ_HEAD(, thread) p_threads, 0x10);
 TYPE_FIELD(struct ucred *p_ucred, 0x40);
 TYPE_FIELD(struct filedesc *p_fd, 0x48);
 TYPE_FIELD(int pid, 0xB0);
 TYPE_FIELD(struct vmspace *p_vmspace, 0x168);
-TYPE_FIELD(char p_comm[32], 0x44C);
+TYPE_FIELD(char p_comm[32], 0x444);
 TYPE_FIELD(char titleid[16], 0x390);
 TYPE_FIELD(char contentid[64], 0x3D4);
 TYPE_FIELD(char path[64], 0x46C);
 TYPE_END();
 
-TYPE_BEGIN(struct thread, 0x800); // XXX: random, don't use directly without fixing it
+TYPE_BEGIN(struct thread, 0x578); // XXX: random, don't use directly without fixing it
 TYPE_FIELD(struct mtx *volatile td_lock, 0);
 TYPE_FIELD(struct proc *td_proc, 8);
 TYPE_FIELD(TAILQ_ENTRY(thread) td_plist, 0x10);
