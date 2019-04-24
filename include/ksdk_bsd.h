@@ -249,7 +249,7 @@ TYPE_FIELD(struct vmspace *p_vmspace, 0x168);
 TYPE_FIELD(char p_comm[32], 0x444);
 TYPE_FIELD(char titleid[16], 0x390);
 TYPE_FIELD(char contentid[64], 0x3D4);
-TYPE_FIELD(char path[64], 0x46C);
+TYPE_FIELD(char path[64], 0x464);
 TYPE_END();
 
 TYPE_BEGIN(struct thread, 0x578); // XXX: random, don't use directly without fixing it
