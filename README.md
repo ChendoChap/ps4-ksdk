@@ -1,4 +1,4 @@
-This is an SDK for PlayStation 4 kernels! Support for 5.05 only right now!  
+This is an SDK for PlayStation 4 kernels! Support for 7.02 only right now!  
 Created by **Alexandro Sanchez Bach** and maintained by golden  
 Check out Alex's project [Oribital](https://github.com/AlexAltea/orbital)
 
